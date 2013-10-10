@@ -1,0 +1,91 @@
+.reveal pre code {
+    font-size: 25px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.reveal .no-bullet{
+    list-style-type: none;
+}
+.reveal .strikeout {
+    position: relative;
+}
+.reveal .strikeout::after {
+    border-bottom: 15px solid red;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+
+.reveal .output>code {
+    border: 1px solid rgba(0,200, 0, 0.4);
+    background-color: rgba(0, 200, 0, 0.05);
+    
+}
+
+
+
+#screen{
+    display: block;
+    width: 785px;
+    height: 432px;
+    margin: auto;
+}
+#code{
+    position: absolute;
+    width: 700px;
+    height: 800px;
+    top: -300px;
+    left: 0;
+	/*position: relative;*/
+	/*width: 700px;*/
+	/*height: 350px;*/
+	/*top: 35px;*/
+	/*left: 40px;*/
+
+	background: url(../img/code.png);
+
+	-webkit-animation: scrolling 10s infinite linear;
+	   -moz-animation: scrolling 10s infinite linear;
+	    -ms-animation: scrolling 10s infinite linear;
+	     -o-animation: scrolling 10s infinite linear;
+	        animation: scrolling 10s infinite linear;
+	-webkit-transition: all .3s ease;	-moz-transition: all 0.3s ease;	-o-transition: all 0.3s ease;	-ms-transition: all 0.3s ease;	transition: all 0.3s ease;
+	-webkit-transform-origin: 0% 100%;
+	   -moz-transform-origin: 0% 100%;
+	    -ms-transform-origin: 0% 100%;
+	     -o-transform-origin: 0% 100%;
+	        transform-origin: 0% 100%;
+}
+
+@-webkit-keyframes scrolling{
+	from {background-position: 0 0;}
+	to{background-position: 0 -4743px;}
+
+}
+@-moz-keyframes scrolling{
+	from {background-position: 0 0;}
+	to{background-position: 0 -4743px;}
+}
+@-ms-keyframes scrolling{
+	from {background-position: 0 0;}
+	to{background-position: 0 -4743px;}
+}
+@-o-keyframes scrolling{
+	from {background-position: 0 0;}
+	to{background-position: 0 -4743px;}
+}
+@keyframes scrolling{
+	from {background-position: 0 0;}
+	to{background-position: 0 -4743px;}
+}
+
+#code.stop_scrolling{
+	-webkit-animation-play-state: paused;
+	   -moz-animation-play-state: paused;
+	    -ms-animation-play-state: paused;
+	     -o-animation-play-state: paused;
+	        animation-play-state: paused;
+}

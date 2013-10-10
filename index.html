@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>GIT - distributed version control for everyday life</title>
+
+		<meta name="description" content="GIT version control">
+		<meta name="author" content="Thasso Griebel">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/main.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>GIT</h1>
+					<h3>Distributed Version Control</h3>
+					<p>
+						<small>Thasso Griebel</small>
+					</p>
+				</section>
+				<section>
+					<h1>GIT</h1>
+					<h3><span class="strikeout">Distributed</span> Version Control</h3>
+				</section>
+
+				<section>
+					<h1>But why?</h1>
+				</section>
+				<section>
+					<h2>Well...</h2>
+                    <pre><code data-trim>
+$>ls
+my_project.v1   my_project.v24  my_project.v4   my_project.v55  my_project.v70  my_project.v86
+my_project.v10  my_project.v25  my_project.v40  my_project.v56  my_project.v71  my_project.v87
+my_project.v100 my_project.v26  my_project.v41  my_project.v57  my_project.v72  my_project.v88
+my_project.v11  my_project.v27  my_project.v42  my_project.v58  my_project.v73  my_project.v89
+my_project.v12  my_project.v28  my_project.v43  my_project.v59  my_project.v74  my_project.v9
+my_project.v13  my_project.v29  my_project.v44  my_project.v6   my_project.v75  my_project.v90
+my_project.v14  my_project.v3   my_project.v45  my_project.v60  my_project.v76  my_project.v91
+my_project.v15  my_project.v30  my_project.v46  my_project.v61  my_project.v77  my_project.v92
+my_project.v16  my_project.v31  my_project.v47  my_project.v62  my_project.v78  my_project.v93
+my_project.v17  my_project.v32  my_project.v48  my_project.v63  my_project.v79  my_project.v94
+my_project.v18  my_project.v33  my_project.v49  my_project.v64  my_project.v8   my_project.v95
+my_project.v19  my_project.v34  my_project.v5   my_project.v65  my_project.v80  my_project.v96
+my_project.v2   my_project.v35  my_project.v50  my_project.v66  my_project.v81  my_project.v97
+my_project.v20  my_project.v36  my_project.v51  my_project.v67  my_project.v82  my_project.v98
+my_project.v21  my_project.v37  my_project.v52  my_project.v68  my_project.v83  my_project.v99
+my_project.v22  my_project.v38  my_project.v53  my_project.v69  my_project.v84
+my_project.v23  my_project.v39  my_project.v54  my_project.v7   my_project.v85
+                    </code></pre>
+				</section>
+				<section>
+					<h2>Version control</h2>
+                    <ul>
+                        <li>Consistent history</li>
+                        <li>Complete history</li>
+                        <li>Names</li>
+                        <li>Easy access to all version</li>
+                        <li>Free playground and easy merge</li>
+                        <li>Collaborative</li>
+                    </ul>
+				</section>
+                
+                <section>
+                    <h2>Getting started</h2>
+                    <ul>
+                        <li>Identify yourself</li>
+                        <li>Create a repository</li>
+                        <li>Add files</li>
+                        <li>Commit changes</li>
+                    </ul>
+				</section>
+
+				<section>
+                    <h2><a href="http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup">Identify yourself</a></h2>
+                    <pre><code data-trim>
+git config --global user.name "Jack Johnsons"
+git config --global user.email "jack@johnsoninc.com"
+                    </code></pre>
+                    <p class="fragment fade-in">You do this only once!</p>
+				</section>
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-init">Initialize a git project</a></h2>
+					<pre><code data-trim>
+cd stats_project
+                    </code></pre>
+					<pre class="fragment roll-in"><code data-trim>
+git init
+                    </code></pre>
+					<pre class="fragment roll-in output"><code data-trim style="font-size:15px">
+Initialized empty Git repository in /home/me/stats_project
+                    </code></pre>
+				</section>
+
+
+
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-status">Check status</a></h2>
+					<pre><code data-trim contenteditable>
+git status
+                    </code></pre>
+					<pre class='fragment roll-in output'><code data-trim style="font-size: 18px;">
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
+#
+#project_stats.py
+nothing added to commit But untracked files present (use "git add" to track)
+                    </code></pre>
+				</section>
+
+
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-add">Add files</a></h2>
+					<pre><code data-trim>
+git add project_stats.py
+git status
+                    </code></pre>
+					<pre class='fragment roll-in output'><code data-trim style="font-size: 24px;">
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached &lt;file&gt;..." to unstage)
+#
+#new file:   project_stats.py
+                    </code></pre>
+				</section>
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-commit">Commit changes</a></h2>
+					<pre><code data-trim>
+git commit -m "This is my first commit"
+                    </code></pre>
+					<pre class='fragment roll-in output'><code data-trim>
+[master (root-commit) d342939] This is my first commit
+1 file changed, 11 insertions(+)
+create mode 100755 project_stats.py
+                    </code></pre>
+					<pre class='fragment fade-in'><code data-trim>
+git status
+                    </code></pre>
+					<pre class='fragment roll-in output'><code data-trim>
+# On branch master
+nothing to commit, working directory clean
+                    </code></pre>
+				</section>
+
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-commit">(Re)-Commit changes</a></h2>
+                    <p>I screwed up my commit message and forgot to add a file</p>
+					<pre><code data-trim>
+git log --oneline
+                    </code></pre>
+					<pre class='fragment roll-in output'><code data-trim>
+130b08b I am still learning
+a2de588 Added changelog and documented third column
+...
+                    </code></pre>
+					<pre class='fragment fade-in'><code data-trim>
+git add forgotten_file.txt
+git commit -m "I am still learning" --amend
+git log --oneline
+                    </code></pre>
+					<div class='fragment roll-in'>
+    					<pre class="output"><code data-trim>
+9cbd8bc I am still learning
+a2de588 Added changelog and documented third column
+...
+                        </code></pre>
+                        <p class="">
+                            <p style="color:red;"><b>You just changed history</b></p>
+                        </p>
+                    </div>
+				</section>
+
+                <section>
+                    <h2>Basic workflow</h2>
+                    <ul>
+                        <li>Make changes</li>
+                        <li>Stage files</li>
+                        <li>Commit changes</li>
+                    </ul>
+                    <ul class="fragment fade-in no-bullet">
+                        <li><code>vim ...</code></li>
+                        <li><code>git add <.|FILE></code></li>
+                        <li><code>git commit</code></li>
+                    </ul>
+				</section>
+
+                <section>
+                    <h2>What happend</h2>
+                    <ul>
+                        <li>Check the log</li>
+                        <li>Check changes</li>
+                    </ul>
+				</section>
+
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-log">Check the log</a></h2>
+                    <pre><code data-trim>
+git log
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+commit 5babb81eb221e107a649e53fff986ff7c4f9289c
+Author: Jack Johnsons &lt;jack@johnsoninc.com&gt;
+Date:   Wed Oct 9 14:10:35 2013 +0200
+
+    Added author information
+
+commit 0b710c1213d7bdaf67ba3f848465f8f3704ce72a
+Author: Jack Johnsons &lt;jack@johnsoninc.com&gt;
+Date:   Wed Oct 9 14:09:55 2013 +0200
+
+    Added documentation to main
+
+commit d342939d8388674160c10112ac619db4fb3365dc
+Author: Jack Johnsons &lt;jack@johnsoninc.com&gt;
+Date:   Mon Oct 7 23:58:32 2013 +0200
+
+    This is my first commit
+                    </code></pre>
+
+				</section>
+
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-log">Check the log</a></h2>
+                    <pre><code data-trim>
+git log --oneline
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+5babb81 Added author information
+0b710c1 Added documentation to main
+d342939 This is my first commit
+                    </code></pre>
+                </section>
+				<section>
+                    <h2><a href="http://git-scm.com/docs/git-diff">Check changes</a></h2>
+
+                    <h3>Current to commit</h3>
+                    <pre><code data-trim>
+git diff 0b710c1
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+diff --git a/project_stats.py b/project_stats.py
+index 48a10bb..a71813d 100755
+--- a/project_stats.py
++++ b/project_stats.py
+@@ -2,6 +2,7 @@
+ """Collect fancy project statistics"""
+ import sys
+
++__author__ = "Thasso Griebel"
+
+ if __name__ == "__main__":
+     """The main function"""
+                    </code></pre>
+				</section>
+            <section>
+                <h2><a href="http://git-scm.com/docs/git-diff">Check changes</a></h2>
+                <h3>Commit to Commit</h3>
+                <pre><code data-trim>
+git diff 0b710c1 d342939
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim>
+diff --git a/project_stats.py b/project_stats.py
+index 48a10bb..84d4d92 100755
+--- a/project_stats.py
++++ b/project_stats.py
+@@ -4,7 +4,6 @@ import sys
+
+
+ if __name__ == "__main__":
+-    """The main function"""
+     collected_sum = 0
+     for line in sys.stdin:
+         fields = line.strip().split("\t")
+                </code></pre>
+            </section>
+
+
+
+
+
+
+
+
+            <section>
+                <h1>Branches</h1>
+            </section>
+            <section>
+                <h2><a href="http://nvie.com/posts/a-successful-git-branching-model/">Branch workflow</a></h2>
+                <ul>
+                    <li>Create a new branch</li>
+                    <li>Switch branches</li>
+                    <li>Work on a branch</li>
+                    <li>List branches</li>
+                    <li>Merge branches</li>
+                </ul>
+                <ul class="fragment fade-in no-bullet">
+                    <li><code>git branch &lt;name&gt;</code></li>
+                    <li><code>git checkout &lt;name&gt;</code></li>
+                    <li><code>vim/git add/git commit</code></li>
+                    <li><code>git branch</code></li>
+                    <li><code>git merge &lt;other_branch&gt;</code></li>
+                </ul>
+                <p class="fragment fade-in" style="margin-top: 50px; color: green;">
+                    <code>git checkout -b &lt;name&gt;</code> is a shortcut for create and checkout</p>
+                </p>
+            </section>
+
+            <section>
+                <h2><a href="http://git-scm.com/docs/git-checkout">Create a branch</a></h2>
+                <pre><code data-trim>
+git checkout -b add_column
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim>
+Switched to a new branch 'add_column'
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git branch
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim>
+* add_column
+  master
+                </code></pre>
+            </section>
+            <section>
+                <h2>Work on a branch</h2>
+                <p>Apply your standard work flow</p>
+                    <div id="code">&nbsp;</div>
+            </section>
+            <section>
+                <h2><a href="http://git-scm.com/docs/git-checkout">What happend</a></h2>
+                <h3>diff branches</h3>
+                <pre><code data-trim>
+git diff master
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim style="font-size:15px;">
+diff --git a/Readme.md b/Readme.md
+index 28cb1ec..3f4b4a7 100644
+--- a/Readme.md
++++ b/Readme.md
+@@ -1,3 +1,7 @@
+ The uber project
+ ================
+ This is the best project ever written
++
++Changelog
++=========
++* added support for a third column
+diff --git a/project_stats.py b/project_stats.py
+index a71813d..7d7cb6f 100755
+--- a/project_stats.py
++++ b/project_stats.py
+@@ -7,7 +7,9 @@ __author__ = "Thasso Griebel"
+ if __name__ == "__main__":
+     """The main function"""
+     collected_sum = 0
++    extra_stuff = 0
+     for line in sys.stdin:
+         fields = line.strip().split("\t")
+         collected_sum += int(fields[1])
+-    print collected_sum
++        extra_stuff += int(fields[2])
++    print collected_sum, extra_stuff
+                </code></pre>
+            </section>
+            <section>
+                <h2><a href="http://git-scm.com/docs/git-merge">Merge changes</a></h2>
+                <h3>Merge changes back to <i>master</i></h3>
+                <pre><code data-trim>
+git checkout master
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git merge add_column
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git log --oneline
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim>
+a2de588 Added changelog and documented third column
+2917dc8 Added support for third column
+5bfbe77 Added readme
+5babb81 Added author information
+0b710c1 Added documentation to main
+d342939 This is my first commit
+                </code></pre>
+            </section>
+            <section>
+                <h2><a href="http://git-scm.com/docs/git-reset">Undo please</a></h2>
+                <h3>The was not what I wanted</h3>
+                <pre><code data-trim>
+git log --oneline
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim>
+a2de588 Added changelog and documented third column
+2917dc8 Added support for third column
+5bfbe77 Added readme
+...
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git reset 5bfbe77
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git status
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim style='font-size:18px'>
+# On branch master
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+#
+#	modified:   Readme.md
+#	modified:   project_stats.py
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git checkout .
+                </code></pre>
+            </section>
+
+
+            <section>
+                <h2><a href="http://git-scm.com/docs/git-tag">Create a tag</a></h2>
+                <h3>SHA1's are nice ... for geeks</h3>
+                <pre><code data-trim>
+git tag -a v1.0
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git tag -n
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim>
+v1.0            Three column power
+                </code></pre>
+            </section>
+            <section>
+                <h2><a href="http://git-scm.com/docs/git-revert">Tags can be checked out</a></h2>
+                <pre><code data-trim>
+git checkout v1.0
+                </code></pre>
+
+                <pre class="fragment roll-in output"><code data-trim style="font-size:15px">
+Note: checking out 'v1.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at 8d80cfa... Merged joes documentation change
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git checkout -b v1.0
+                </code></pre>
+            </section>
+
+
+
+
+
+
+				<section>
+					<h3><span style="font-size:2em;">Distributed</span> Version Control</h3>
+				</section>
+                <section>
+                    <h2><a href="http://git-scm.com/docs/git-remote">Distributed changes</a></h2>
+                    <h3>Share repositories and fetch updates</h3>
+                    <ul>
+                        <li>No server necessary</li>
+                        <li>Clone repositories</li>
+                        <li>Pull changes</li>
+                    </ul>
+                    <ul class="fragment fade-in no-bullet">
+                        <li></li>
+                        <li><code>git clone</code></li>
+                        <li><code>git pull</code></li>
+                    <ul>
+                </section>
+                <section data-background="#007777">
+                    <h2><a href="http://git-scm.com/docs/git-clone">Clone a repository</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+git clone /home/devel/jack/stats
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+cd stats
+git branch -a
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/add_column
+  remotes/origin/master
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2>Jack updates</h2>
+                    <pre class='fragment roll-in'><code data-trim>
+git checkout master
+git merge add_column
+                    </code></pre>
+                </section>
+                <section data-background="#007777">
+                    <h2><a href="http://git-scm.com/docs/git-pull">Pull changes</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+git pull
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+From /home/devel/jack/stats
+   5bfbe77..9cbd8bc  master     -> origin/master
+Updating 5bfbe77..9cbd8bc
+Fast-forward
+ Readme.md        |    5 +++++
+ project_stats.py |    4 +++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+ create mode 100644 forgotten_file.txt
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+git log --oneline
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+a2de588 Added changelog and documented third column
+2917dc8 Added support for third column
+5bfbe77 Added readme
+5babb81 Added author information
+0b710c1 Added documentation to main
+d342939 This is my first commit
+                    </code></pre>
+
+                </section>
+                <section data-background="#007777">
+                    <h2><a href="http://git-scm.com/book/ch5-2.html">Add a feature</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+vim project_stats.py
+git commit -a -m "Added support for a fourth column"
+                    </code></pre>
+                    <pre class='fragment roll-in output' ><code style="font-size: 18px;" data-trim>
+mail -s “Fourth column support” jack@johnsoninc.com << EOF
+Hi Jack, 
+I was missing support for a fourth column in the
+stats and added the feature. You can pull the changes from my master
+branch at
+
+    /home/devel/joe/stats
+
+Cheers,
+Joe
+EOF
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/docs/git-remote">Add a remote</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+git remote add joe /home/devel/joe/stats
+git remote -v
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+joe    /home/devel/joe/stats (fetch)
+joe    /home/devel/joe/stats (push)
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+git fetch joe
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+From /home/devel/joe/stats
+ * [new branch]      add_column -> joe/add_column
+ * [new branch]      master     -> joe/master
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/docs/git-remote">Get the changes</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+git branch -a
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code>
+  add_column
+* master
+  remotes/joe/master
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+git checkout -b joes_master joe/master
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim style="font-size:18px">
+Branch joes_master set up to track remote branch master from joe.
+Switched to a new branch 'joes_master'
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+git log
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim style="font-size:18px">
+commit b16d4b247f936345216ca924ffea4c895ca024ab
+Author: Joe Jackson &lt;joe@mylittlepony.com&gt;
+Date:   Wed Oct 9 18:12:07 2013 +0200
+
+    Added support for a fourth column
+
+commit a2de5881b0717f2253a03d38d99a9dbd7b5d6880
+Author: Jack Johnsons &lt;jack@johnsoninc.com&gt;
+Date:   Wed Oct 9 16:26:08 2013 +0200
+
+    Added changelog and documented third column
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/docs/git-diff">Check...</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+git diff master
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim style="font-size: 18px;">
+diff --git a/project_stats.py b/project_stats.py
+index 7d7cb6f..fe183f3 100755
+--- a/project_stats.py
++++ b/project_stats.py
+@@ -8,8 +8,10 @@ if __name__ == "__main__":
+     """The main function"""
+     collected_sum = 0
+     extra_stuff = 0
++    additional_stuff = 0
+     for line in sys.stdin:
+         fields = line.strip().split("\t")
+         collected_sum += int(fields[1])
+         extra_stuff += int(fields[2])
+-    print collected_sum, extra_stuff
++        additional_stuff += int(fields[3])
++    print collected_sum, extra_stuff, additional_stuff
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/docs/git-diff">... and merge</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+git checkout master
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+git merge joes_master
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim>
+Updating 9cbd8bc..b16d4b2
+Fast-forward
+ project_stats.py |    4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/docs/git-merge">Always ask for more</a></h2>
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim style="font-size:18px">
+mail -s “Fourth column support” joe@mylittlepony.com << EOF
+Hi Joe,
+thanks for the forth colum feature, very useful! I merged it to master but 
+could you be so kind and add some documentation?
+
+Cheers,
+Jack
+EOF
+                    </code></pre>
+                </section>
+                <section data-background="#007777">
+                    <h2><a href="http://git-scm.com/book/ch5-2.html">Documentation fix</a></h2>
+                    <pre class='fragment roll-in'><code data-trim>
+vim project_stats.py
+git commit -a -m "Documented the fourth column"
+                    </code></pre>
+                    <pre class='fragment roll-in' ><code style="font-size: 18px;" data-trim>
+mail -s “Fourth column support” jack@johnsoninc.com << EOF
+Hi Jack, 
+
+no problem, I added documentation and commited again to my master branch.
+
+Cheers,
+Joe
+EOF
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/docs/git-pull">Pull changes</a></h2>
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+git checkout master
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim>
+git pull joe master
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim style="font-size:18px">
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From ../joe/stats
+ * branch            master     -> FETCH_HEAD
+Auto-merging project_stats.py
+CONFLICT (content): Merge conflict in project_stats.py
+Automatic merge failed; fix conflicts and then commit the result.
+                    </code></pre>
+                    <p class="fragment fade-in">uuups...</p>
+
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merge-Conflicts">Resolve a conflict</a></h2>
+                    </code></pre>
+                    <pre class='fragment roll-in'><code data-trim style="font-size:15px">
+...
+<<<<<<< HEAD
+    first column: some number
+    second column: some other number
+    third column: some even better number
+=======
+    fourth column: great information!
+>>>>>>> 98786eaaa6e7a9be99c61dc5826b355e1e175630
+...
+                    </code></pre>
+                </section>
+                <section data-background="#8c4738">
+                    <h2><a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merge-Conflicts">Commit after conflict</a></h2>
+                    <pre class='fragment roll-in'><code data-trim style="font-size:15px">
+git commit -a
+git log
+                    </code></pre>
+                    <pre class='fragment roll-in output'><code data-trim style="font-size:15px">
+commit 8d80cfadb2df52e93df0158ec20c032be57a4051
+Merge: 2e3928e 98786ea
+Author: Jack Johnsons &lt;jack@johnsoninc.com&gt;
+Date:   Wed Oct 9 18:37:32 2013 +0200
+
+    Merged joes documentation change
+
+    Conflicts:
+    	project_stats.py
+
+commit 98786eaaa6e7a9be99c61dc5826b355e1e175630
+Author: Joe Jackson &lt;joe@mylittlepony.com&gt;
+Date:   Wed Oct 9 18:31:25 2013 +0200
+
+    Added documentaiton for the fourth column               
+                    </code></pre>
+
+                </section>
+
+
+
+            <section>
+                <h2><a href="http://git-scm.com/book/ch4-2.html">Central repositories</a></h2>
+                <ul>
+                    <li>Bare repositories can also be local or remote</li>
+                    <li>You can pull and <b>push</b></li>
+                </ul>
+            </section>
+            <section data-background="#8c4738">
+                <h2><a href="http://git-scm.com/docs/git-merge">Create a bare repository</a></h2>
+                <pre><code data-trim>
+cd /srv/repos
+mkdir stats; cd stats
+git init --bare --shared
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+cd $HOME/stats
+git remote add origin /srv/repos/stats
+git push -u origin master
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim style="font-size: 18px">
+Counting objects: 34, done.
+Delta compression using up to 16 threads.
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (34/34), 3.20 KiB, done.
+Total 34 (delta 13), reused 0 (delta 0)
+Unpacking objects: 100% (34/34), done.
+To ../repos/stats
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+                </code></pre>
+            </section>
+            <section data-background="#007777">
+                <h2><a href="">Clone a shared repository</a></h2>
+                <pre class='fragment roll-in'><code data-trim>
+git clone /srv/repos/stats
+cd stats
+git remote -v
+                </code></pre>
+                <pre class='fragment roll-in output' ><code style="font-size: 18px;" data-trim>
+origin	/srv/repos/stats (fetch)
+origin	/srv/repos/stats (push)
+                </code></pre>
+            </section>
+            <section data-background="#007777">
+                <h2><a href="">Push changes</a></h2>
+                <pre class='fragment roll-in'><code data-trim>
+git pull origin master
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+vim project_stats.py
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git add project_stats.py
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git commit -m "Fixed some typos"
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git push origin master
+                </code></pre>
+            </section>
+            <section data-background="#007777">
+                <h2><a href="">Create and push a new branch</a></h2>
+                <pre class='fragment roll-in'><code data-trim>
+git checkout -b endless_columns
+                </code></pre>
+                <pre class='fragment roll-in'><code data-trim>
+git push -u origin endless_columns
+                </code></pre>
+                <pre class='fragment roll-in output'><code data-trim style="font-size:17px">
+Total 0 (delta 0), reused 0 (delta 0)
+To /srv/repos/stats
+ * [new branch]      endless_columns -> endless_columns
+Branch endless_columns set up to track remote branch endless_columns from origin.
+                </code></pre>
+            </section>
+
+            <section>
+                <h1>Fin</h1>
+            </section>
+
+
+
+
+
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
