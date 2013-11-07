@@ -52,10 +52,10 @@
 				</section>
 
 				<section>
-					<h2><span style="font-size:2em">But why?</span></h2>
+					<h2><span style="font-size:2em">Why?</span></h2>
 				</section>
 				<section>
-					<h2>Well...</h2>
+					<h2>...</h2>
                     <pre><code data-trim>
 $>ls
 my_project.v1   my_project.v24  my_project.v4   my_project.v55  my_project.v70  my_project.v86
@@ -196,33 +196,8 @@ git log --oneline
 9cbd8bc I am still learning
 a2de588 Added changelog and documented third column
 ...
-                        </code></pre>
-                        <p class="">
-                            <p style="color:orange"><b>You just changed history</b></p>
-                        </p>
+                        </code></pre>                        
                     </div>
-				</section>
-
-                <section>
-                    <h2>Basic workflow</h2>
-                    <ul>
-                        <li>Make changes</li>
-                        <li>Stage files</li>
-                        <li>Commit changes</li>
-                    </ul>
-                    <ul class="fragment fade-in no-bullet">
-                        <li><code>vim/emacs ...</code></li>
-                        <li><code>git add <.|FILE></code></li>
-                        <li><code>git commit</code></li>
-                    </ul>
-				</section>
-
-                <section>
-                    <h2>What happend</h2>
-                    <ul>
-                        <li>Check the log</li>
-                        <li>Check changes</li>
-                    </ul>
 				</section>
 
 				<section>
@@ -282,7 +257,7 @@ index 48a10bb..a71813d 100755
  if __name__ == "__main__":
      """The main function"""
                     </code></pre>
-                    <div class='fragment' style='margin-top:2em'>
+                    <div class='fragment' style='margin-top:1em'>
                     <h3>Possible diffs</h3>
                     <ul>
                         <li>current to HEAD</li>
@@ -293,7 +268,7 @@ index 48a10bb..a71813d 100755
                 </section>
                 <section>
                 <h2><a href="http://git-scm.com/docs/git-reset">Undo please</a></h2>
-                <h3>The was not what I wanted</h3>
+                <h3>That was not what I wanted</h3>
                 <pre><code data-trim>
 git log --oneline
                 </code></pre>
@@ -326,7 +301,7 @@ git checkout .
 
             <section>
                 <h2><a href="http://git-scm.com/docs/git-tag">Create a tag</a></h2>
-                <h3>SHA1's are nice ... for geeks</h3>
+                <h3>SHA1 strings are nice ... for geeks</h3>
                 <pre><code data-trim>
 git tag -a v1.0
                 </code></pre>
@@ -334,7 +309,7 @@ git tag -a v1.0
 git tag -n
                 </code></pre>
                 <pre class='fragment roll-in output'><code data-trim>
-v1.0            Three column power
+v1.0            Three columns power
                 </code></pre>
             </section>
             <section>
@@ -362,23 +337,21 @@ git checkout -b v1.0
                 </code></pre>
             </section>
             <section>
-                <h2><a href="http://nvie.com/posts/a-successful-git-branching-model/">Branch workflow</a></h2>
+                <h2><a href="http://nvie.com/posts/a-successful-git-branching-model/">Branches</a></h2>
                 <ul>
                     <li>Create a new branch</li>
                     <li>Switch branches</li>
-                    <li>Work on a branch</li>
                     <li>List branches</li>
                     <li>Merge branches</li>
                 </ul>
                 <ul class="fragment fade-in no-bullet">
                     <li><code>git branch &lt;name&gt;</code></li>
                     <li><code>git checkout &lt;name&gt;</code></li>
-                    <li>Standard workflow</li>
                     <li><code>git branch</code></li>
                     <li><code>git merge &lt;other_branch&gt;</code></li>
                 </ul>
                 <p class="fragment fade-in" style="margin-top: 50px; color: orange;">
-                    <code>git checkout -b &lt;name&gt;</code> is a shortcut for create and checkout</p>
+                    <code>git checkout -b &lt;name&gt;</code> is a shortcut for "create and checkout"</p>
                 </p>
             </section>
             <section>
