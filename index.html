@@ -39,7 +39,7 @@
 			<div class="slides">
 				<section>
 					<!-- <h1>GIT</h1> -->
-                    <img width="500" height="200" src="http://static.v2ex.com/logos/git.png">
+                    <img width="500" height="200" src="img/git.png">
 					<h2>Distributed Version Control</h2>
 					<p>
                         <!-- <small>Emilio Palumbo</small> -->
@@ -80,12 +80,10 @@ my_project.v23  my_project.v39  my_project.v54  my_project.v7   my_project.v85
 				<section>
 					<h2>Version control</h2>
                     <ul>
-                        <li>Consistent history</li>
-                        <li>Complete history</li>
-                        <li>Names</li>
+                        <li>Complete and consistent history</li>
                         <li>Easy access to all version</li>
-                        <li>Free playground and easy merge</li>
                         <li>Collaborative</li>
+                        <li>Free playground and easy merge</li>
                     </ul>
 				</section>
 
@@ -134,7 +132,7 @@ git status
 #
 # Untracked files:
 #   (use "git add &lt;file&gt;..." to include in what will be committed)
-#
+#Jack Johnson
 #myscript.py
 nothing added to commit But untracked files present (use "git add" to track)
                     </code></pre>
@@ -279,7 +277,7 @@ index 48a10bb..a71813d 100755
  """Collect fancy project statistics"""
  import sys
 
-+__author__ = "Emilio Palumbo"
++__author__ = "Jack Johnson"
 
  if __name__ == "__main__":
      """The main function"""
@@ -403,8 +401,8 @@ git checkout -b v1.0
             <section>
                 <h2><a href="http://git-scm.com/book/ch4-2.html">Central repositories</a></h2>
                 <ul>
-                    <li>Bare repositories can also be local or remote</li>
-                    <li>You can pull and <b>push</b></li>
+                    <li>Bare repositories can either be local or remote</li>
+                    <li>You can <b>pull</b> and <b>push</b></li>
                 </ul>
             </section>
             <section>
@@ -483,7 +481,7 @@ git push origin master
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme || 'simple', // available themes are in /css/theme
+				theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Optional libraries used to extend on reveal.js
