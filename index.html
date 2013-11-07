@@ -103,7 +103,7 @@ my_project.v23  my_project.v39  my_project.v54  my_project.v7   my_project.v85
 git config --global user.name "Jack Johnsons"
 git config --global user.email "jack@johnsoninc.com"
                     </code></pre>
-                    <p class="fragment fade-in">You do this only once!</p>
+                    <p class="fragment fade-in">You have to do this only once!</p>
 				</section>
 				<section>
                     <h2><a href="http://git-scm.com/docs/git-init">Initialize a git project</a></h2>
@@ -113,8 +113,8 @@ cd myproject
 					<pre class="fragment roll-in"><code data-trim>
 git init
                     </code></pre>
-					<pre class="fragment roll-in output"><code data-trim style="font-size:15px">
-Initialized empty Git repository in /home/me/myproject
+					<pre class="fragment roll-in output"><code data-trim>
+Initialized empty Git repository in /home/jack/myproject
                     </code></pre>
 				</section>
 
@@ -125,15 +125,15 @@ Initialized empty Git repository in /home/me/myproject
 					<pre><code data-trim contenteditable>
 git status
                     </code></pre>
-					<pre class='fragment roll-in output'><code data-trim style="font-size: 18px;">
+					<pre class='fragment roll-in output'><code data-trim>
 # On branch master
 #
 # Initial commit
 #
 # Untracked files:
 #   (use "git add &lt;file&gt;..." to include in what will be committed)
-#Jack Johnson
-#myscript.py
+#
+#       myscript.py
 nothing added to commit But untracked files present (use "git add" to track)
                     </code></pre>
 				</section>
@@ -145,7 +145,7 @@ nothing added to commit But untracked files present (use "git add" to track)
 git add myscript.py
 git status
                     </code></pre>
-					<pre class='fragment roll-in output'><code data-trim style="font-size: 24px;">
+                    <pre class='fragment roll-in output'><code data-trim>
 # On branch master
 #
 # Initial commit
@@ -153,7 +153,7 @@ git status
 # Changes to be committed:
 #   (use "git rm --cached &lt;file&gt;..." to unstage)
 #
-#new file:   myscript.py
+#       new file:   myscript.py
                     </code></pre>
 				</section>
 				<section>
@@ -309,7 +309,7 @@ git reset 5bfbe77
                 <pre class='fragment roll-in'><code data-trim>
 git status
                 </code></pre>
-                <pre class='fragment roll-in output'><code data-trim style='font-size:18px'>
+                <pre class='fragment roll-in output'><code data-trim>
 # On branch master
 # Changes not staged for commit:
 #   (use "git add &lt;file&gt;..." to update what will be committed)
@@ -343,7 +343,7 @@ v1.0            Three column power
 git checkout v1.0
                 </code></pre>
 
-                <pre class="fragment roll-in output"><code data-trim style="font-size:15px">
+                <pre class="fragment roll-in output"><code data-trim>
 Note: checking out 'v1.0'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -417,7 +417,7 @@ cd $HOME/myproject
 git remote add origin /srv/repos/myproject
 git push -u origin master
                 </code></pre>
-                <pre class='fragment roll-in output'><code data-trim style="font-size: 18px">
+                <pre class='fragment roll-in output'><code data-trim>
 Counting objects: 34, done.
 Delta compression using up to 16 threads.
 Compressing objects: 100% (30/30), done.
@@ -436,7 +436,7 @@ git clone /srv/repos/myproject
 cd myproject
 git remote -v
                 </code></pre>
-                <pre class='fragment roll-in output' ><code style="font-size: 18px;" data-trim>
+                <pre class='fragment roll-in output' ><code>" data-trim>
 origin	/srv/repos/myproject (fetch)
 origin	/srv/repos/myproject (push)
                 </code></pre>
