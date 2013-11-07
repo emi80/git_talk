@@ -86,7 +86,7 @@ my_project.v23  my_project.v39  my_project.v54  my_project.v7   my_project.v85
                         <li>Collaborative</li>
                     </ul>
 				</section>
-                
+
                 <section>
                     <h2>Getting started</h2>
                     <ul>
@@ -568,7 +568,7 @@ git commit -a -m "Added support for a fourth column"
                     </code></pre>
                     <pre class='fragment roll-in output' ><code style="font-size: 18px;" data-trim>
 mail -s “Fourth column support” jack@johnsoninc.com << EOF
-Hi Jack, 
+Hi Jack,
 I was missing support for a fourth column in the
 stats and added the feature. You can pull the changes from my master
 branch at
@@ -678,7 +678,7 @@ Fast-forward
                     <pre class='fragment roll-in'><code data-trim style="font-size:18px">
 mail -s “Fourth column support” joe@mylittlepony.com << EOF
 Hi Joe,
-thanks for the forth colum feature, very useful! I merged it to master but 
+thanks for the forth colum feature, very useful! I merged it to master but
 could you be so kind and add some documentation?
 
 Cheers,
@@ -694,7 +694,7 @@ git commit -a -m "Documented the fourth column"
                     </code></pre>
                     <pre class='fragment roll-in' ><code style="font-size: 18px;" data-trim>
 mail -s “Fourth column support” jack@johnsoninc.com << EOF
-Hi Jack, 
+Hi Jack,
 
 no problem, I added documentation and commited again to my master branch.
 
@@ -762,7 +762,7 @@ commit 98786eaaa6e7a9be99c61dc5826b355e1e175630
 Author: Joe Jackson &lt;joe@mylittlepony.com&gt;
 Date:   Wed Oct 9 18:31:25 2013 +0200
 
-    Added documentaiton for the fourth column               
+    Added documentaiton for the fourth column
                     </code></pre>
 
                 </section>
@@ -871,8 +871,8 @@ Branch endless_columns set up to track remote branch endless_columns from origin
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				theme: Reveal.getQueryHash().theme || 'simple', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
